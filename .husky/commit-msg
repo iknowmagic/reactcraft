@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo "   #### REMAINDER ####"
-echo "💡 Use the interactive prompt:"
+echo ""
+echo "💡 Remainder. Use the interactive prompt:"
 echo "   👉 npm run commit"
 echo ""
 
