@@ -1,0 +1,63 @@
+// eslint.config.js
+import js from '@eslint/js'
+import prettier from 'eslint-plugin-prettier'
+import react from 'eslint-plugin-react'
+import reactHooks from 'eslint-plugin-react-hooks'
+import globals from 'globals'
+import tseslint from 'typescript-eslint'
+
+export default [
+  js.configs.recommended,
+  react.configs.flat.recommended,
+  {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
+
+  ...tseslint.config({
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      parser: tseslint.parser,
+      ecmaVersion: 2020,
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.es2021,
+      },
+    },
+    plugins: {
+      prettier,
+      'react-hooks': reactHooks,
+    },
+    rules: {
+      'prettier/prettier': 'warn',
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+    },
+  }),
+
+  {
+    files: ['**/*.test.tsx', '**/*.test.ts'],
+    languageOptions: {
+      globals: {
+        ...globals.vitest,
+      },
+    },
+  },
+
+  {
+    ignores: [
+      '**/node_modules',
+      '**/dist',
+      '**/.history',
+      '**/.vscode',
+      '**/.idea',
+      '**/coverage',
+    ],
+  },
+]

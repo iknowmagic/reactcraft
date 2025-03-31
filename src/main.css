@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
