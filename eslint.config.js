@@ -5,6 +5,7 @@ import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import configPrettier from 'eslint-config-prettier'
 
 export default [
   js.configs.recommended,
@@ -18,10 +19,10 @@ export default [
   },
 
   ...tseslint.config({
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       parser: tseslint.parser,
-      ecmaVersion: 2020,
+      ecmaVersion: 2022,
       sourceType: 'module',
       globals: {
         ...globals.browser,
@@ -33,7 +34,7 @@ export default [
       'react-hooks': reactHooks,
     },
     rules: {
-      'prettier/prettier': 'warn',
+      'prettier/prettier': 'error',
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'react-hooks/rules-of-hooks': 'error',
@@ -60,4 +61,6 @@ export default [
       '**/coverage',
     ],
   },
+
+  configPrettier,
 ]
