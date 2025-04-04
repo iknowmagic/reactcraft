@@ -2,6 +2,9 @@
 export default {
   parserPreset: 'conventional-changelog-conventionalcommits',
   extends: ['@commitlint/config-conventional'],
+  rules: {
+    'header-max-length': [2, 'always', 120],
+  },
   prompt: {
     messages: {
       skip: ':skip',
