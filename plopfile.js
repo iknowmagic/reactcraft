@@ -5,7 +5,7 @@ export default function (plop) {
       {
         type: 'input',
         name: 'name',
-        message: 'Component name (PascalCase please):',
+        message: 'Component name (PascalCase please)',
       },
     ],
     actions: [
@@ -28,6 +28,11 @@ export default function (plop) {
         type: 'add',
         path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.types.ts',
         templateFile: '.templates/Component.types.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
+        templateFile: '.templates/Component.stories.tsx.hbs',
       },
     ],
   })

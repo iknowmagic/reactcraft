@@ -494,3 +494,4 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/node,yarn,macos,react,intellij+all,visualstudiocode,python,jupyternotebooks
 
 *storybook.log
+amalgamated.txt
