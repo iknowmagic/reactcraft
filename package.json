@@ -11,7 +11,9 @@
     "prepare": "husky install",
     "test": "vitest",
     "commit": "git-cz",
-    "plop": "plop"
+    "plop": "plop",
+    "minor": "npm version minor",
+    "major": "npm version major"
   },
   "config": {
     "commitizen": {
