@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = (_props) => {
           <div className="lg:hidden top-4 left-64 z-50 fixed">
             <label
               htmlFor="nav-drawer"
-              className="ml-4 p-0 btn-outline w-8 h-8 text-xl btn btn-sm btn-info"
+              className="ml-4 p-0 w-8 h-8 text-xl btn btn-neutral btn-sm"
               aria-label="Close menu"
             >
               <HiX />
