@@ -1,5 +1,8 @@
 import React from 'react'
+import type { HomeProps } from './Home.types'
 
-export default function Home() {
-  return <>Make something great!</>
+export const Home: React.FC<HomeProps> = (_props) => {
+  return <div data-testid="home">Home component</div>
 }
+
+export default Home
