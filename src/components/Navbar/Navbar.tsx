@@ -1,6 +1,7 @@
 import React from 'react'
 import ThemeToggle from '@/components/ThemeToggle'
 import type { NavbarProps } from './Navbar.types'
+import { HiX } from 'react-icons/hi'
 
 const menuItems = [
   { label: 'Features', href: '#features' },
@@ -19,17 +20,8 @@ export const Navbar: React.FC<NavbarProps> = (_props) => {
         <input id="nav-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           <div className="px-4 navbar">
-            <div className="flex-1">
-              <a className="text-xl btn btn-ghost" href="/">
-                ReactCraft
-              </a>
-            </div>
-            <div className="flex flex-none items-center gap-2">
-              <ThemeToggle />
-              <label
-                htmlFor="nav-drawer"
-                className="lg:hidden btn btn-square btn-ghost"
-              >
+            <div className="lg:hidden flex-none">
+              <label htmlFor="nav-drawer" className="btn btn-square btn-ghost">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-6 h-6"
@@ -46,17 +38,39 @@ export const Navbar: React.FC<NavbarProps> = (_props) => {
                 </svg>
               </label>
             </div>
+            <div className="flex-1">
+              <a className="text-xl btn btn-ghost" href="/">
+                ReactCraft
+              </a>
+            </div>
+            <div className="flex-none">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
         <div className="z-50 drawer-side">
           <label htmlFor="nav-drawer" className="drawer-overlay" />
-          <ul className="bg-base-200 p-4 w-64 min-h-full text-base-content menu">
-            {menuItems.map(({ label, href }) => (
-              <li key={label}>
-                <a href={href}>{label}</a>
-              </li>
-            ))}
-          </ul>
+
+          {/* close icon next to the drawer panel */}
+          <div className="lg:hidden top-4 left-64 z-50 fixed">
+            <label
+              htmlFor="nav-drawer"
+              className="ml-4 p-0 btn-outline w-8 h-8 text-xl btn btn-sm btn-info"
+              aria-label="Close menu"
+            >
+              <HiX />
+            </label>
+          </div>
+
+          <div className="bg-base-200 p-4 w-64 min-h-full text-base-content menu">
+            <ul className="space-y-2">
+              {menuItems.map(({ label, href }) => (
+                <li key={label}>
+                  <a href={href}>{label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
