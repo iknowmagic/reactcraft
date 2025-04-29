@@ -1,41 +1,74 @@
 import React, { useEffect, useState } from 'react'
-import { useThemeStore, THEME_DARK, THEME_LIGHT } from '@/store/themeStore'
-import { FaSun, FaMoon } from 'react-icons/fa'
+import { FaMoon, FaSun } from 'react-icons/fa'
+import { IoColorPalette } from 'react-icons/io5'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+  useThemeStore,
+  THEME_DARK,
+  THEME_LIGHT,
+  THEME_SYSTEM,
+  Theme,
+} from '@/store/themeStore'
 
 export const ThemeToggle: React.FC = () => {
-  const { theme, setTheme, isDarkTheme } = useThemeStore()
-  const [isDark, setIsDark] = useState<boolean>(isDarkTheme())
+  const { theme, setTheme } = useThemeStore()
+  const [_resolved, setResolved] = useState<Theme>(THEME_LIGHT)
 
   useEffect(() => {
-    setIsDark(isDarkTheme())
-  }, [theme, isDarkTheme])
+    const media = window.matchMedia('(prefers-color-scheme: dark)')
+    const resolve = () => (media.matches ? THEME_DARK : THEME_LIGHT)
 
-  const handleToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newTheme = event.target.checked ? THEME_DARK : THEME_LIGHT
-    setTheme(newTheme)
+    if (theme === THEME_SYSTEM) {
+      setResolved(resolve())
+    } else {
+      setResolved(theme)
+    }
+
+    const handleChange = () => {
+      if (theme === THEME_SYSTEM) {
+        setResolved(resolve())
+      }
+    }
+
+    media.addEventListener('change', handleChange)
+    return () => media.removeEventListener('change', handleChange)
+  }, [theme])
+
+  const cycleTheme = () => {
+    const order: Theme[] = [THEME_LIGHT, THEME_DARK, THEME_SYSTEM]
+    const next = order[(order.indexOf(theme) + 1) % order.length]
+    setTheme(next)
+  }
+
+  const icon = () => {
+    if (theme === THEME_SYSTEM)
+      return <IoColorPalette key="system" className="w-6 h-6" />
+    if (theme === THEME_DARK) return <FaMoon key="dark" className="w-6 h-6" />
+    return <FaSun key="light" className="w-6 h-6" />
   }
 
   return (
-    <div className="flex items-center gap-2" data-testid="theme-toggle">
-      <label className="swap swap-rotate">
-        <input
-          type="checkbox"
-          className="theme-controller"
-          checked={isDark}
-          onChange={handleToggle}
-        />
-
-        {/* Sun icon from react-icons */}
-        <FaSun className="w-6 h-6 swap-off" />
-
-        {/* Moon icon from react-icons */}
-        <FaMoon className="w-6 h-6 swap-on" />
-      </label>
-
-      {theme !== THEME_LIGHT && theme !== THEME_DARK && (
-        <div className="badge badge-accent">{theme}</div>
-      )}
-    </div>
+    <button
+      onClick={cycleTheme}
+      className="btn btn-ghost btn-square"
+      data-testid="theme-toggle"
+      title={`Theme: ${theme}`}
+    >
+      <div className="relative flex justify-center items-center w-6 h-6 overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={theme}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.25 }}
+            className="absolute"
+          >
+            {icon()}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </button>
   )
 }
 
