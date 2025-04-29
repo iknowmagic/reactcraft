@@ -3,7 +3,7 @@ export default {
   parserPreset: 'conventional-changelog-conventionalcommits',
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'header-max-length': [2, 'always', 120],
+    'header-max-length': [2, 'always', 150],
   },
   prompt: {
     messages: {

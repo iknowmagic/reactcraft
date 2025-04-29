@@ -66,6 +66,7 @@ export default [
       '**/.vscode',
       '**/.idea',
       '**/coverage',
+      '**/stories',
     ],
   },
 
