@@ -1,8 +1,39 @@
 {
-  "name": "react-ts-custom",
-  "private": true,
+  "name": "reactcraft",
+  "description": "A modern React starter kit combining React 19, TypeScript, Tailwind, and Zustand with best practices for building high-quality web applications",
   "version": "1.7.0",
+  "private": false,
   "type": "module",
+  "author": {
+    "name": "iknowmagic",
+    "url": "https://github.com/iknowmagic"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "react19",
+    "typescript",
+    "tailwindcss",
+    "daisyui",
+    "vite",
+    "starter-kit",
+    "boilerplate",
+    "zustand",
+    "storybook",
+    "vitest",
+    "theming"
+  ],
+  "homepage": "https://github.com/iknowmagic/reactcraft",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iknowmagic/reactcraft.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iknowmagic/reactcraft/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -16,7 +47,12 @@
     "major": "npm version major",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "branch": "zsh scripts/newbranch.zsh",
+    "snap": "zsh scripts/snapshot.zsh",
+    "bump:patch": "zsh scripts/bump.zsh patch",
+    "bump:minor": "zsh scripts/bump.zsh minor",
+    "bump:major": "zsh scripts/bump.zsh major"
   },
   "config": {
     "commitizen": {

@@ -39,12 +39,17 @@ ReactCraft is a comprehensive starter kit that combines the latest React ecosyst
   - Commitizen & Commitlint - Standardized commit messages with interactive prompt
 - **Testing & Documentation**
   - Vitest - Fast, modern testing framework with JSDOM support
-  - Storybook 8 - Component documentation and testing
+  - Storybook 8 - Component documentation and testing with device viewports
   - Testing Library - User-centric testing utilities
 - **Developer Experience**
   - Component generation with Plop
   - Preconfigured VS Code settings and extensions
   - Path aliasing with '@' imports
+- **Structured Git Workflow**
+  - Tag-centric process with immutable version history
+  - Clean branch management with short-lived work branches
+  - Helper scripts for branch creation, snapshots, and versioning
+  - See [GIT_WORKFLOW.md](./GIT_WORKFLOW.md) for detailed workflow documentation
 
 ## Quick Start
 
@@ -103,21 +108,25 @@ ReactCraft is a comprehensive starter kit that combines the latest React ecosyst
 reactcraft/
 ├── .storybook/          # Storybook configuration
 ├── .templates/          # Component templates for Plop
+├── scripts/             # Git workflow automation helpers
 ├── src/
-│   ├── components/      # Reusable UI components
-│   ├── pages/           # Page components
-│   ├── layouts/         # Layout components
-│   ├── features/        # Feature-based modules
-│   ├── store/           # State management (Zustand)
-│   ├── hooks/           # Custom React hooks
-│   ├── utils/           # Utility functions
-│   ├── styles/          # Global styles and Tailwind config
-│   ├── config/          # Application configuration
 │   ├── assets/          # Static assets (images, fonts)
+│   ├── components/      # Reusable UI components
+│   ├── config/          # Application configuration
+│   ├── features/        # Feature-based modules
+│   ├── hooks/           # Custom React hooks
+│   ├── layouts/         # Layout components
+│   ├── lib/             # Shared libraries and utilities
+│   ├── pages/           # Page components
+│   ├── store/           # State management (Zustand)
+│   ├── stories/         # Additional Storybook stories
+│   ├── styles/          # Global styles and Tailwind config
+│   ├── utils/           # Utility functions
 │   ├── main.tsx         # Application entry point
 ├── public/              # Static files served by the web server
 ├── .husky/              # Git hooks configuration
 ├── .vscode/             # VS Code settings
+├── [GIT_WORKFLOW.md](./GIT_WORKFLOW.md)               # Git workflow documentation
 ```
 
 ## Theme System
@@ -147,11 +156,20 @@ This creates:
 
 ## Git Workflow
 
-The project includes a standardized git workflow:
+ReactCraft implements a tag-centric Git workflow designed for clarity and efficiency:
 
-- **Pre-commit hooks**: Automatically runs tests and lints staged files
-- **Commit messages**: Use `npm run commit` for an interactive commit prompt that enforces conventional commit format
-- **VS Code integration**: Recommended extensions and settings for optimal development
+- **Immutable version history** - Each release is sealed with a `v<semver>` tag that never changes
+- **Clean branch management** - Development happens in short-lived `work/b####` branches that disappear after merging
+- **Snapshot system** - Optional `snap/YYYY.MM.DD-n-b####` tags provide daily checkpoints when needed
+- **Streamlined release process** - Helper scripts automate common Git operations
+
+### Built-in workflow commands:
+
+```bash
+npm run branch   # Create next work branch (work/b####)
+npm run snap     # Create snapshot of current work
+npm run bump:patch|minor|major  # Version bump, tag, and push
+```
 
 ## Browser Support
 
