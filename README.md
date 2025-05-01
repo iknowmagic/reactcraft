@@ -126,7 +126,7 @@ reactcraft/
 ├── public/              # Static files served by the web server
 ├── .husky/              # Git hooks configuration
 ├── .vscode/             # VS Code settings
-├── [GIT_WORKFLOW.md](http://_vscodecontentref_/0)      # Git workflow documentation
+├── [GIT_WORKFLOW.md](./GIT_WORKFLOW.md)               # Git workflow documentation
 ```
 
 ## Theme System
