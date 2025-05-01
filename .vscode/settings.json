@@ -1,4 +1,17 @@
 {
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "typescript": true,
+    "typescriptreact": true
+  },
+  "github.copilot.advanced": {
+    "indentationMode": {
+      "typescript": true,
+      "typescriptreact": true
+    }
+  },
   "github.copilot.chat.commitMessageGeneration.instructions": [
     {
       "text": "Use short, conventional commit messages (e.g., 'fix: correct typo', 'feat: add user login'). Do not exceed 150 characters for the subject line. Follow the Conventional Commits specification."

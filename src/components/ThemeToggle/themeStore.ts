@@ -15,7 +15,7 @@ export const AVAILABLE_THEMES = [
   THEME_DARK,
 ] as const
 
-export type Theme = typeof THEME_LIGHT | typeof THEME_DARK | typeof THEME_SYSTEM
+export type Theme = (typeof AVAILABLE_THEMES)[number] | typeof THEME_SYSTEM
 
 interface ThemeStore {
   theme: Theme
