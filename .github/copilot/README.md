@@ -61,3 +61,7 @@ Add Framer Motion animations when they enhance the user experience:
 
 - Use Zustand for global state
 - Keep component state local when possible
+
+### Other Updates
+
+`ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`.

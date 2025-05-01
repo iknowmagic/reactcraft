@@ -15,7 +15,8 @@
     "minor": "npm version minor",
     "major": "npm version major",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "typecheck": "tsc --noEmit"
   },
   "config": {
     "commitizen": {
