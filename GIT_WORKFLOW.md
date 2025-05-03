@@ -50,11 +50,35 @@ _(Script internals live in `scripts/`; this document focuses on when to run them
    - Review your changes
    - Merge the PR (preferably using "Squash and merge")
 6. **After merge is complete:**
+
    - `git checkout main` (switch to main branch locally)
    - `git pull` (get latest changes including your merged PR)
-   - Rename the "Unreleased" section in CHANGELOG.md to the appropriate version
-   - `git commit -am "docs: update CHANGELOG for v1.X.Y"`
+
+   **Option A: Using GitHub Copilot (recommended)**
+
+   - Run `npm run changelog` to generate changes.txt
+   - Share changes.txt with GitHub Copilot, asking it to:
+     1. Analyze commit types (feat, fix, docs, etc.)
+     2. Suggest appropriate version bump (minor for features, patch for fixes)
+     3. Generate formatted CHANGELOG entries
+   - Update CHANGELOG.md based on Copilot's recommendations
+   - Commit: `git commit -am "docs: update CHANGELOG for v1.X.Y"`
+
+   **Option B: Manual update**
+
+   - Check current version in package.json
+   - Review recent commits with `git log --oneline v[last-tag]..HEAD`
+   - Decide on version bump based on commit types:
+     - Features (`feat:`) → Minor version bump
+     - Fixes (`fix:`) → Patch version bump
+     - Breaking changes → Major version bump
+   - Rename the "Unreleased" section in CHANGELOG.md to the new version
+   - Commit: `git commit -am "docs: update CHANGELOG for v1.X.Y"`
+
+   **Final step (both options)**
+
    - `npm run bump:<level>` (patch/minor/major) → creates and pushes `vX.Y.Z` tag
+
 7. In GitHub → **Draft new release** → choose the new tag, add notes, publish.
 
 ---
