@@ -40,12 +40,15 @@ _(Script internals live in `scripts/`; this document focuses on when to run them
 
 ## Daily routine
 
-1. **Spin a branch** `npm run branch` → you land on `work/b####`.
+1. **Spin a branch** `npm run branch` → you land on `work/b####`.
 2. Code; commit granularly.
-3. *(Optional)* `npm run snap` at day’s end for a rollback anchor.
-4. Open PR → CI passes → squash‑merge → GitHub auto‑deletes the branch.
-5. On `main` `npm run bump:<level>` (patch/minor/major) → pushes `vX.Y.Z`.
-6. In GitHub → **Draft new release** → choose the new tag, title it (`Peter Pan ‑ 5`), add notes, publish.
+3. _(Optional)_ `npm run snap` at day's end for a rollback anchor.
+4. Push your branch and open PR → CI passes → squash‑merge → GitHub auto‑deletes the branch.
+5. **After merge is complete:**
+   - `git checkout main` (switch to main branch locally)
+   - `git pull` (get latest changes including your merged PR)
+   - `npm run bump:<level>` (patch/minor/major) → creates and pushes `vX.Y.Z` tag
+6. In GitHub → **Draft new release** → choose the new tag, title it (`Peter Pan ‑ 5`), add notes, publish.
 
 ---
 

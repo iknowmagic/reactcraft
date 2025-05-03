@@ -43,16 +43,16 @@
     "test": "vitest",
     "commit": "git-cz",
     "plop": "plop",
-    "minor": "npm version minor",
-    "major": "npm version major",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "typecheck": "tsc --noEmit",
     "branch": "zsh scripts/newbranch.zsh",
     "snap": "zsh scripts/snapshot.zsh",
-    "bump:patch": "zsh scripts/bump.zsh patch",
-    "bump:minor": "zsh scripts/bump.zsh minor",
-    "bump:major": "zsh scripts/bump.zsh major"
+    "minor": "npm version minor",
+    "major": "npm version major",
+    "bump:patch": "git diff --quiet && git checkout main && npm version patch && git push --follow-tags",
+    "bump:minor": "git diff --quiet && git checkout main && npm version minor && git push --follow-tags",
+    "bump:major": "git diff --quiet && git checkout main && npm version major && git push --follow-tags"
   },
   "config": {
     "commitizen": {
