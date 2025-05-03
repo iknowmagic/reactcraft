@@ -52,7 +52,8 @@
     "major": "npm version major",
     "bump:patch": "git diff --quiet && git checkout main && npm version patch && git push --follow-tags",
     "bump:minor": "git diff --quiet && git checkout main && npm version minor && git push --follow-tags",
-    "bump:major": "git diff --quiet && git checkout main && npm version major && git push --follow-tags"
+    "bump:major": "git diff --quiet && git checkout main && npm version major && git push --follow-tags",
+    "changelog": "zsh scripts/changelog-prep.zsh"
   },
   "config": {
     "commitizen": {

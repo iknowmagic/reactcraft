@@ -42,19 +42,20 @@ _(Script internals live in `scripts/`; this document focuses on when to run them
 
 1. **Spin a branch** `npm run branch` → you land on `work/b####`.
 2. Code; commit granularly.
-3. _(Optional)_ `npm run snap` at day's end for a rollback anchor.
-4. **Complete the PR process:**
+3. _(Optional)_ Add your changes to the "Unreleased" section of CHANGELOG.md.
+4. _(Optional)_ `npm run snap` at day's end for a rollback anchor.
+5. **Complete the PR process:**
    - Push your branch to GitHub
    - Create a pull request (PR) to merge into `main`
-   - For teams: Wait for code review and approval
-   - For solo developers: Review your own changes
+   - Review your changes
    - Merge the PR (preferably using "Squash and merge")
-   - GitHub will automatically delete the branch once merged
-5. **After merge is complete:**
+6. **After merge is complete:**
    - `git checkout main` (switch to main branch locally)
    - `git pull` (get latest changes including your merged PR)
+   - Rename the "Unreleased" section in CHANGELOG.md to the appropriate version
+   - `git commit -am "docs: update CHANGELOG for v1.X.Y"`
    - `npm run bump:<level>` (patch/minor/major) → creates and pushes `vX.Y.Z` tag
-6. In GitHub → **Draft new release** → choose the new tag, title it (e.g., `v1.8.0`), add notes, publish.
+7. In GitHub → **Draft new release** → choose the new tag, add notes, publish.
 
 ---
 
@@ -90,3 +91,5 @@ _(Script internals live in `scripts/`; this document focuses on when to run them
 Everything else—branch protection, auto‑delete merged branches, required status checks—is configured in GitHub settings.
 
 Stay lean, keep the tags immutable, and your history reads like a clean jazz chart instead of a scribbled napkin.
+
+**Note for teams with protected branches:** If your main branch is protected, create a "release preparation" PR that updates the CHANGELOG.md with the new version number. After merging, an authorized team member can create the version tag.
