@@ -2,6 +2,38 @@
 
 All notable changes to the ReactCraft project will be documented in this file.
 
+## [v1.10.0]
+
+### Added
+
+- Enhanced changelog preparation script that references local CHANGELOG.md
+- Note for teams with multiple developers to ensure workflow consistency
+- Improved changelog update process with GitHub Copilot and manual options
+- Updated GIT_WORKFLOW documentation with comprehensive version management
+
+## [v1.9.0]
+
+### Added
+
+- Enhanced PR process documentation for clarity and team collaboration
+- Improved Git workflow documentation with step-by-step guidelines
+
+### Changed
+
+- Updated bump scripts for better version management
+- Updated dependencies
+
+## [v1.8.0]
+
+### Added
+
+- Implemented structured Git workflow with automation scripts
+- Added comprehensive workflow documentation in GIT_WORKFLOW.md
+
+### Fixed
+
+- Updated link to GIT_WORKFLOW.md in README for correct relative path
+
 ## [v1.7.0]
 
 ### Added
