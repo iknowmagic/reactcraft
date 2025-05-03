@@ -1,7 +1,7 @@
 {
   "name": "reactcraft",
   "description": "A modern React starter kit combining React 19, TypeScript, Tailwind, and Zustand with best practices for building high-quality web applications",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "private": false,
   "type": "module",
   "author": {
@@ -61,13 +61,14 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.5",
-    "framer-motion": "^12.9.2",
+    "daisyui": "^5.0.35",
+    "framer-motion": "^12.9.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.5.3",
     "tailwindcss": "^4.1.5",
-    "zustand": "^5.0.3"
+    "zustand": "^5.0.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.6",
@@ -77,7 +78,7 @@
     "@commitlint/prompt": "^19.8.0",
     "@commitlint/prompt-cli": "^19.8.0",
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.25.1",
+    "@eslint/js": "^9.26.0",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-onboarding": "^8.6.12",
     "@storybook/addon-viewport": "^8.6.12",
@@ -99,8 +100,7 @@
     "@vitest/browser": "^3.1.2",
     "@vitest/coverage-v8": "^3.1.2",
     "commitizen": "^4.3.1",
-    "daisyui": "^5.0.32",
-    "eslint": "^9.25.1",
+    "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-prettier": "^5.2.6",
     "eslint-plugin-react": "^7.37.5",
