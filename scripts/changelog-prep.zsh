@@ -79,7 +79,7 @@ git log --pretty=format:"* %h %s" $LAST_TAG..HEAD | grep -E "refactor(\([^)]*\))
 cat >> $OUTPUT_FILE << EOL
 
 ## Current CHANGELOG.md structure (first few lines):
-$(head -n 20 ../CHANGELOG.md)
+$(head -n 20 ./CHANGELOG.md)
 
 ## Instructions for updating CHANGELOG:
 
