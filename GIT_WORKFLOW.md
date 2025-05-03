@@ -117,3 +117,4 @@ Everything else—branch protection, auto‑delete merged branches, required sta
 Stay lean, keep the tags immutable, and your history reads like a clean jazz chart instead of a scribbled napkin.
 
 **Note for teams with protected branches:** If your main branch is protected, create a "release preparation" PR that updates the CHANGELOG.md with the new version number. After merging, an authorized team member can create the version tag.
+**Note for teams with multiple developers:** Ensure that all developers are aware of the workflow and follow the same process to avoid confusion and maintain a clean history.
