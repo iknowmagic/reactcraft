@@ -1,7 +1,7 @@
 {
   "name": "reactcraft",
   "description": "A modern React starter kit combining React 19, TypeScript, Tailwind, and Zustand with best practices for building high-quality web applications",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "private": false,
   "type": "module",
   "author": {
