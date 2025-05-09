@@ -1,9 +1,8 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
-echo ""
-echo "💡 Remainder. Use the interactive prompt:"
-echo "   👉 npm run commit"
-echo ""
+. "$HOME/.nvm/nvm.sh"  # Load nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-npx commitlint --edit "$1"
+
+npx lint-staged --config ./lint-staged.config.js
+npx vitest run --silent --passWithNoTests
